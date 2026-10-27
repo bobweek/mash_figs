@@ -417,9 +417,9 @@ def figure_rescue_mechanisms():
         ax=axes[1,j]
         if j == 0:
             ax.plot(t,z[0],color=col,lw=2,label="host + microbe")
-            ax.plot(th,zh[0],color=NEUTRAL,lw=1.6,ls="--",label="microbe removed")
+            ax.plot(th,zh[0],color=NEUTRAL,lw=1.6,ls="--",label="without microbe")
         else:
-            ax.plot(th,zh[0],color=NEUTRAL,lw=1.6,ls="--",label="microbe removed")
+            ax.plot(th,zh[0],color=NEUTRAL,lw=1.6,ls="--",label="without microbe")
             ax.plot(t,z[0],color=col,lw=2,label="host + microbe")
         ax.set_ylim(0,1.02)
         ax.set_xlabel("time after environmental change")
