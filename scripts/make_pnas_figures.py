@@ -563,7 +563,7 @@ def figure_rescue_landscape():
 
         ax.text(.004, .0032, "never recrosses", color="#111", fontsize=6.3,
                 bbox=dict(fc="white", ec="none", alpha=.85, pad=1.4))
-        ax.set_xlabel(r"gene–microbe interaction $e$")
+        ax.set_xlabel(r"rescue allele–microbe interaction $e$")
         if col == 0:
             ax.set_ylabel(r"microbial selection $s_m$")
         scenario_title(ax, title, pad=4)
