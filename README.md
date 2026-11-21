@@ -11,12 +11,12 @@ The calculations examine how microbial effects on host fitness, non-additive hos
 ├── README.md
 ├── scripts/
 │   ├── qme_rescue_model.py
-│   └── make_pnas_figures.py
+│   └── make_figures.py
 └── figures/                 # Created automatically when figures are generated
 ```
 
 - **`scripts/qme_rescue_model.py`** defines the model parameters, full frequency and demographic equations, first-order QME expressions, numerical ODE solvers, and utilities for checking physical states and comparing model predictions.
-- **`scripts/make_pnas_figures.py`** sets the figure-specific parameter values, runs trajectories and parameter sweeps, performs robustness comparisons, and creates the publication figures.
+- **`scripts/make_figures.py`** sets the figure-specific parameter values, runs trajectories and parameter sweeps, performs robustness comparisons, and creates the publication figures.
 
 Both Python files must be in the same `scripts/` directory. The plotting script determines the output directory relative to its own location, not the shell's current working directory.
 
@@ -40,7 +40,7 @@ python -m pip install numpy scipy matplotlib
 From the repository root, run:
 
 ```bash
-python scripts/make_pnas_figures.py
+python scripts/make_figures.py
 ```
 
 This generates PDF and PNG versions of all seven figures in `figures/`. The PDF outputs are suitable for vector-based manuscript figures; the PNG outputs are saved at 400 dpi.
@@ -65,7 +65,7 @@ The model uses three frequency variables: microbial prevalence (`p_m`), rescue-a
 
 The shared model implementation is in `qme_rescue_model.py`. The plotting script calls that implementation rather than independently defining the model equations. ODE trajectories use SciPy's `solve_ivp` with the LSODA method. Figure 3 uses a vectorized fourth-order Runge–Kutta grid calculation. Figure S3 uses a scrambled Sobol sequence with a fixed seed (`20260728`); its default sample size is 1,024 parameter combinations.
 
-Figure-specific parameter choices and numerical resolutions are documented in `make_pnas_figures.py`. The S1–S3 figures provide comparisons between the full dynamics and the QME approximation, including qualitative robustness outside the weakest-selection regime. Small differences in appearance or numerical output may arise across library versions and installed fonts.
+Figure-specific parameter choices and numerical resolutions are documented in `make_figures.py`. The S1–S3 figures provide comparisons between the full dynamics and the QME approximation, including qualitative robustness outside the weakest-selection regime. Small differences in appearance or numerical output may arise across library versions and installed fonts.
 
 ## Reproducibility and scope
 
